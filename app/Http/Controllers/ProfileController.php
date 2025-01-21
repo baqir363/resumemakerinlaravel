@@ -71,7 +71,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        // profile update
         $validate = $request->validate([
             "name" => "required|max:80",
             "email" => "email",
@@ -82,7 +82,6 @@ class ProfileController extends Controller
         $profile->mobile = $validate['mobile'];
         $profile->email = $validate['email'];
         $profile->save();
-
         return redirect(url('/editprofile'));
     }
 
