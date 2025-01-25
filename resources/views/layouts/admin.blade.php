@@ -25,7 +25,7 @@
     <div id="app">
         <header>
             <div id="header">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/')}}/">ResumeBuilder</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,16 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ url('/')}}/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/')}}/page/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/')}}/page/contact">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/')}}/page/services">Services</a>
+              <a class="nav-link active" aria-current="page" href="{{ url('/dashboard')}}/">Dashboard</a>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -59,7 +50,7 @@
                      <a class="nav-link" href="{{ url('/')}}/home">My Account</a>
                      </li>
                      <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/')}}/logout"                                       onclick="event.preventDefault();
+                    <a class="nav-link" href="{{ url('/')}}/logout" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
                     </li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

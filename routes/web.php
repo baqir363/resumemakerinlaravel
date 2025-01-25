@@ -27,7 +27,14 @@ Route::get('/page/{page}', [App\Http\Controllers\PageController::class, 'show'])
 
 
 Route::get('/editprofile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-
-
-
 Route::post('/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/print', [App\Http\Controllers\ProfileController::class, 'print'])->name('profile.print');
+
+Route::post('/avatar', [App\Http\Controllers\UserController::class, 'avatar'])->name('avatar');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('/export', [App\Http\Controllers\UserController::class, 'export'])->name('users.export');
+});

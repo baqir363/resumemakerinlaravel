@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
+use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ProfileController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +15,8 @@ class ProfileController extends Controller
     public function index()
     {
         //
+        $tasks = Task::get();
+        return response()->json($tasks, 200);
     }
 
     /**
@@ -37,71 +38,59 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         //
+        $data['title'] = $request->title;
+        $task = Task::create($data);
+        return response()->json($task, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show(Task $task)
     {
         //
-    }
-
-    public function print()
-    {
-        //
-        return view('profile.print');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Task $task)
     {
         //
-        $countries = \App\Models\Country::get();
-        $states = \App\Models\State::get();
-        return view('profile.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Task $task)
     {
-        // profile update
-        $validate = $request->validate([
-            "name" => "required|max:80",
-            "dob" => "required",
-            "gender" => "required",
-        ]);
-        $profile = Auth::user();
-        $profile->name = $validate['name'];
-        $profile->dob = $validate['dob'];
-        $profile->gender = $validate['gender'];
-        $profile->save();
-
-        return redirect(url('/home'));
+        //
+        $task->title= $request->title;
+        $task->save();
+        return response()->json($task, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy(Task $task)
     {
         //
+        $task->delete();
+        $output['message'] = "deleted";
+        return response()->json($output, 200);
     }
 }

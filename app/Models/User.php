@@ -46,4 +46,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(\App\Models\Profile::class);
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function education()
+    {
+        return $this->hasMany(Education::class);
+    }
 }
