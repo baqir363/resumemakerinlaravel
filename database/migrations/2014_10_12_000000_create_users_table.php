@@ -33,6 +33,8 @@ class CreateUsersTable extends Migration
             $table->text('tech_skills')->nullable();
             $table->text('activities')->nullable();
             $table->text('extra')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->unsignedBigInteger('state_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->enum('role', ['Admin', 'User'])->default('User');
 

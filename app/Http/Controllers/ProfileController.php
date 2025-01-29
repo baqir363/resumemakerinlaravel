@@ -84,11 +84,23 @@ class ProfileController extends Controller
             "name" => "required|max:80",
             "dob" => "required",
             "gender" => "required",
+            "mobile" => "required",
+            "address" => "required",
+            "country" => "required",
+            "state" => "required",
+            "city" => "required",
+
         ]);
         $profile = Auth::user();
         $profile->name = $validate['name'];
         $profile->dob = $validate['dob'];
         $profile->gender = $validate['gender'];
+        $profile->mobile = $validate['mobile'];
+        $profile->address = $validate['address'];
+        $profile->country_id = $validate['country'];
+        $profile->state_id = $validate['state'];
+        $profile->city_id = $validate['city'];
+
         $profile->save();
 
         return redirect(url('/home'));

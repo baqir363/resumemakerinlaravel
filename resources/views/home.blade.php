@@ -50,19 +50,19 @@
 
                     <tr>
                         <td>Address</td>
-                        <td></td>
+                        <td>{{Auth::user()->address }}</td>
                     </tr>
                     <tr>
                         <td>City</td>
-                        <td></td>
+                        <td>{{Auth::user()->city_id }}</td>
                     </tr>
                     <tr>
                         <td>Country</td>
-                        <td></td>
+                        <td>{{Auth::user()->country_id }}</td>
                     </tr>
                     <tr>
                         <td>State</td>
-                        <td></td>
+                        <td>{{Auth::user()->state_id }}</td>
                     </tr>
                     <tr>
                         <td>Pin</td>

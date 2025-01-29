@@ -44,10 +44,14 @@
         <div class="border-top border-bottom my-3 py-3">
         <div class="row">
 <div class="col">Email : <?php echo Auth::user()->email; ?>
-    <br>Contact :<?php
-    // echo Auth::user()->user_contact;
+    <br>Contact : <?php
+    echo Auth::user()->mobile;
      ?></div>
-<div class="col text-end">Address</div>
+<div class="col text-end">Address :
+    <?php
+    echo Auth::user()->address;
+     ?>
+</div>
     </div>
     </div>
     <h5 class="mt-3">Objective</h5>

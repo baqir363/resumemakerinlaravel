@@ -60,7 +60,7 @@
 
         <div class="mb-3">
             <label class="form-label" for="mobile">Mobile</label>
-            <input type="number" name="mobile" class="form-control @error('mobile') is-invalid @enderror" value="{{ Auth::user()->mobile}}">
+            <input type="number" name="mobile" class="form-control @error('mobile') is-invalid @enderror" value="{{ Auth::user()->mobile}}" required>
             @error('mobile')
             <div class="text-danger">{{ $message }}</div>
             @enderror
